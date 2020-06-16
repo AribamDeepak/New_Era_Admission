@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">       
                     <div id="div_id_number" class="form-group required">
-                         <label for="father_name" class="control-label col-md-4  requiredField"> Father Occuption</label>
+                         <label for="father_name" class="control-label col-md-4  requiredField"> Father Occupation</label>
                          <div class="controls col-md-8 ">
                              <input class="input-md textinput textInput form-control" id="father_occuption" name="father_occuption" placeholder="Father Occuption" style="margin-bottom: 10px" type="text" />
                         </div> 
@@ -233,7 +233,7 @@
                     <div id="div_x_subject_offer" class="form-group required">
                         <label for="x_subject_offer" class="control-label col-md-4  requiredField"><span class="asteriskField">*</span>Class X Subject offers </label>
                         <div class="controls col-md-8 ">
-                             <input class="input-md textinput textInput form-control" id="x_subject_offer" name="x_subject_offer" placeholder="eg... English, Mathematic, Science etc" style="margin-bottom: 10px" type="number" maxlength="3" />
+                             <input class="input-md textinput textInput form-control" id="x_subject_offer" name="x_subject_offer" placeholder="eg... English, Mathematic, Science etc" style="margin-bottom: 10px" type="text" />
                         </div> 
                     </div> 
                 </div>
@@ -241,7 +241,7 @@
                     <div id="div_x_eligible_cert_no" class="form-group required">
                         <label for="x_eligible_cert_no" class="control-label col-md-4  requiredField">Eligibility Certificate No. (for transferee)</label>
                         <div class="controls col-md-8 ">
-                             <input class="input-md textinput textInput form-control" id="x_eligible_cert_no" name="x_eligible_cert_no" placeholder="eg... English, Mathematic, Science etc" style="margin-bottom: 10px" type="number" maxlength="3" />
+                             <input class="input-md textinput textInput form-control" id="x_eligible_cert_no" name="x_eligible_cert_no" placeholder="" style="margin-bottom: 10px" type="text" />
                         </div> 
                     </div> 
                 </div>
@@ -292,7 +292,7 @@
                                 </div> 
                             </div> 
                             <div id="div_id_terms" class="checkbox required">
-                               <label for="x_eligible_cert_no" class="control-label col-md-5  requiredField"> Career option you want to choose (after 10+2) :</label>
+                               <label for="career_option" class="control-label col-md-5  requiredField"> Career option you want to choose (after 10+2) :</label>
                                 <div class="controls col-md-7 ">
                                      <input class="input-md textinput textInput form-control" id="career_option" name="career_option" placeholder="eg... Engineering,Doctor etc" style="margin-bottom: 10px" type="text" />
                                 </div> 
@@ -398,6 +398,7 @@ $(function() {
   $('#aadhaar_number').mask('0000-0000-0000', {'translation': {0: {pattern: /[0-9*]/}}});  
   $('#permanent_pin').mask('000000', {'translation': {0: {pattern: /[0-9*]/}}});   
   $('#whatapps_no').mask('0000000000', {'translation': {0: {pattern: /[0-9*]/}}}); 
+  $('#x_passed_year').mask('0000', {'translation': {0: {pattern: /[0-9*]/}}}); 
    
     $( "#dob" ).datepicker({
         dateFormat : 'dd-mm-yy',

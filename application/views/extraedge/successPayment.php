@@ -29,13 +29,12 @@ padding:5px;
 </head>
 <body>
 
-<div class="container" >    
+<div class="container" >   
+      <div align="center" class="mainbox col-md-8 col-md-offset-2 col-sm-12 " style="padding-right:0px; padding-left:0px;">
+         <img class="img-responsive"  id="logoImage" src="<?php echo base_url();?>assets/img/neweralogo.jpg" />
+      </div> 
     <div id="printarea" style=" margin-top:30px" class="mainbox col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-    	<div align="center">
-    	   <img src="<?php echo base_url();?>assets/img/logo.jpg" width="80px"/>
-    	   <h3><strong>New-Era School</strong></h3>
-    	   <br/>
-    	</div>
+    	
       <div align="center">
          <h4><strong>Online Application Form Submission doesn't confirm the candidates admission in the school.</strong></h4>
          <br/>
@@ -55,16 +54,8 @@ padding:5px;
             <td><?php echo $result_dob;?></td>
           </tr>
           <tr>
-            <td>Payment For :</td>
-            <td> Online Application Form. </td>
-          </tr>
-          <tr>
-            <td>Payment Amount :</td>
-            <td>Rs 210.00</td>
-          </tr>
-          <tr>
-            <td>Payment Status :</td>
-            <td><?php echo $result_payment_status;?></td>
+            <td>Address :</td>
+            <td><?php echo $result_permanent_address;?></td>
           </tr>
         </tbody>
       </table>  

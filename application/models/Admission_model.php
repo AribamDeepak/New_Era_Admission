@@ -63,14 +63,11 @@ class Admission_model extends CI_Model{
         return $key;
     } 
 
-    function addResgistrationFrom($student_name,$aadhaar_number,$dob,$gender,$blood_group,$religion,$caste,$identification_mark,$x_pass_board,$x_pass_school,$roll_no,$percentage,$permanent_address,$permanent_district,$permanent_pin,$present_address,$present_district,$present_pin,$father_name,$mother_name,$whatapps_no,$guardian_name,$transportation,$route,$subject_combination,$uploadFiles_photo,$uploadFiles_marksheet,$uploadFiles_admitcard)
+    function addResgistrationFrom($student_name,$dob,$gender,$religion,$caste,$father_name,$father_occuption,$mother_name,$mother_occuption,$permanent_address,$permanent_address_po,$permanent_address_ps,$permanent_pin,$whatapps_no,$aadhaar_number,$identification_mark,$pwd,$blood_group,$x_pass_board,$x_pass_school,$roll_no,$x_passed_year,$x_division,$percentage,$x_subject_offer,$x_eligible_cert_no,$subject_combination,$uploadFiles_photo,$uploadFiles_marksheet,$uploadFiles_admitcard,$ambition,$career_option)
     {       
-    	$imageUrl_photo = base_url()."assets/ExtraEdge/Photo/".$uploadFiles_photo['file_name'];	
-    	$imageUrl_marksheet = base_url()."assets/ExtraEdge/marksheet/".$uploadFiles_marksheet['file_name'];	
-    	$imageUrl_admitcard = base_url()."assets/ExtraEdge/admitcard/".$uploadFiles_admitcard['file_name'];	
-    	if($transportation != 'Bus'){
-    		$route = NULL;
-    	}
+    	$imageUrl_photo = base_url()."assets/NewEraSchool/Photo/".$uploadFiles_photo['file_name'];	
+    	$imageUrl_marksheet = base_url()."assets/NewEraSchool/marksheet/".$uploadFiles_marksheet['file_name'];	
+    	$imageUrl_admitcard = base_url()."assets/NewEraSchool/admitcard/".$uploadFiles_admitcard['file_name'];	
 
     	$DOBDateTime = new DateTime($dob);
       $DOBYear = $DOBDateTime->format('Y-m-d');
@@ -78,35 +75,41 @@ class Admission_model extends CI_Model{
      	$data = array(
      	  'application_id'=>$uniqueId,
           'student_name'=>$student_name,
-          'aadhaar_number'=>$aadhaar_number,
           'dob'=>$DOBYear,
           'gender'=>$gender,
-          'blood_group'=>$blood_group,
+          
           'religion'=>$religion,
           'caste'=>$caste,
+          'father_name' =>$father_name,
+          'father_occupation' =>$father_occuption,
+          'mother_name' =>$mother_name,
+          'mother_occupation' =>$mother_occuption,
+          'permanent_address' =>$permanent_address,
+          'permanent_address_po' =>$permanent_address_po,
+          'permanent_address_ps' =>$permanent_address_ps,
+          'permanent_address_pin' =>$permanent_pin,
+          'watsapp_no' =>$whatapps_no,
+          'aadhaar_number'=>$aadhaar_number,
           'identification_mark'=>$identification_mark,
+          'pwd'=>$pwd,
+          'blood_group'=>$blood_group,
           'passed_board'=>$x_pass_board,
           'school_name' =>$x_pass_school,
           'roll_no' =>$roll_no,
+          'x_passed_year' =>$x_passed_year,
+          'x_division' =>$x_division,
           'percentage' =>$percentage,
-          'permanent_address' =>$permanent_address,
-          'permanent_district' =>$permanent_district,
-          'permanent_address_pin' =>$permanent_pin,
-          'present_address' =>$present_address,
-          'present_district' =>$present_district,
-          'persent_address_pin' =>$present_pin,
-          'father_name' =>$father_name,
-          'mother_name' =>$mother_name,
-          'watsapp_no' =>$whatapps_no,
-          'guardian_name' =>$guardian_name,
-          'transportation' =>$transportation,
-          'transport_bus_route' =>$route,
+          'x_subject_offer' =>$x_subject_offer,
+          'x_eligible_cert_no' =>$x_eligible_cert_no,
           'subject_combination' =>$subject_combination,
           'photo_profile' =>$imageUrl_photo,
           'admitcard_photo' =>$imageUrl_marksheet,
           'marksheet_photo' =>$imageUrl_admitcard,
+          'ambition' =>$ambition,
+          'career_option' =>$career_option,
           'added_on' =>mdate('%Y-%m-%d %H:%i:%s', now()),
-          'isActive'=>0
+          'payment_status_id' => 1,
+          'isActive'=>1
       );
       $fileNameArray = array();
 
@@ -130,6 +133,7 @@ class Admission_model extends CI_Model{
                     $this->session->set_userdata ( 'application_id', $uniqueId );
                     $this->session->set_userdata ( 'student_name', $student_name );
                     $this->session->set_userdata ( 'dob', $dob );
+                    $this->session->set_userdata ( 'permanent_address', $permanent_address );
                 }
 
         return array('code' => $code, 'message' =>  $msg, 'lastInsertID' =>  $lastInsertID);

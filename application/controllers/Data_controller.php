@@ -2353,10 +2353,7 @@ class Data_controller extends CI_Controller {
 				$percentage_to =  $this->security->xss_clean($_POST['percentage_to']);
 				$applyDate =  $this->security->xss_clean($_POST['applyDate']);
 				$subject_comb =  $this->security->xss_clean($_POST['subject_comb']);
-				$transport =  $this->security->xss_clean($_POST['transport']);
-				$bus_route =  $this->security->xss_clean($_POST['bus_route']);
-				$admission =  $this->security->xss_clean($_POST['admission']);
-				$data['result']=$this->database->get_candidate_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb,$transport,$bus_route,$admission);
+				$data['result']=$this->database->get_candidate_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb);
 
 				$total_application=$this->database->get_all_application();
 				$total_admited=$this->database->get_admited_student();

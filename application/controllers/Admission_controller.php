@@ -74,6 +74,9 @@ class Admission_controller extends CI_Controller {
             elseif (empty($_POST["aadhaar_number"])) {
                 $errorMSG = "Aadhaar Number is required";
             }
+            elseif (empty($_POST["pwd"])) {
+                $errorMSG = "Person with disability is required";
+            }
             elseif (empty($_POST["blood_group"])) {
                 $errorMSG = "Blood Group is required";
             }
@@ -113,13 +116,13 @@ class Admission_controller extends CI_Controller {
 
             // **********************Student Photo upload start here *****************************************
                     
-            $file_path_photo = "./assets/ExtraEdge/Photo";
+            $file_path_photo = "./assets/NewEraSchool/Photo";
             $uploadFiles_photo = '';
             $is_file_error = FALSE; 
             
             if (isset($_FILES['files_photo'])) {  
-                if (!is_dir('assets/ExtraEdge/Photo')) {
-                    mkdir('./assets/ExtraEdge/Photo', 0777, TRUE);
+                if (!is_dir('assets/NewEraSchool/Photo')) {
+                    mkdir('./assets/NewEraSchool/Photo', 0777, TRUE);
                 }  
                     if(!empty($_FILES['files_photo']['name'])){
                         
@@ -166,13 +169,13 @@ class Admission_controller extends CI_Controller {
 
             // ********************** STUDENT MARKSHEET UPLOAD start here *****************************************
                 
-            $file_path_marksheet = "./assets/ExtraEdge/marksheet";
+            $file_path_marksheet = "./assets/NewEraSchool/marksheet";
             $uploadFiles_marksheet = '';
             $is_file_error = FALSE; 
             
             if (isset($_FILES['files_marksheet'])) {  
-                if (!is_dir('assets/ExtraEdge/marksheet')) {
-                    mkdir('./assets/ExtraEdge/marksheet', 0777, TRUE);
+                if (!is_dir('assets/NewEraSchool/marksheet')) {
+                    mkdir('./assets/NewEraSchool/marksheet', 0777, TRUE);
                 }  
                     if(!empty($_FILES['files_marksheet']['name'])){
                         
@@ -219,13 +222,13 @@ class Admission_controller extends CI_Controller {
 
             // **********************Student STUDENT ADMITCARD upload start here *****************************************
                 
-            $file_path_admitcard = "./assets/ExtraEdge/admitcard";
+            $file_path_admitcard = "./assets/NewEraSchool/admitcard";
             $uploadFiles_admitcard = '';
             $is_file_error = FALSE; 
             
             if (isset($_FILES['files_admitcard'])) {  
-                if (!is_dir('assets/ExtraEdge/admitcard')) {
-                    mkdir('./assets/ExtraEdge/admitcard', 0777, TRUE);
+                if (!is_dir('assets/NewEraSchool/admitcard')) {
+                    mkdir('./assets/NewEraSchool/admitcard', 0777, TRUE);
                 }  
                     if(!empty($_FILES['files_admitcard']['name'])){
                         
@@ -303,12 +306,18 @@ class Admission_controller extends CI_Controller {
                 $x_subject_offer = $this->security->xss_clean($_POST['x_subject_offer']);    
                 $x_eligible_cert_no = $this->security->xss_clean($_POST['x_eligible_cert_no']);
                 $subject_combination = $this->security->xss_clean($_POST['subject_combination']);
+                $ambition = $this->security->xss_clean($_POST['ambition']);
+                $career_option = $this->security->xss_clean($_POST['career_option']);
 
-		  		$result = $this->Admission_model->addResgistrationFrom($student_name,$dob,$gender,$religion,$caste,$father_name,$father_occuption,$mother_name,$mother_occuption,$permanent_address,$permanent_address_po,$permanent_address_ps,$permanent_pin,$aadhaar_number,$blood_group,$caste,$identification_mark,$x_pass_board,$x_pass_school,$roll_no,$percentage,$permanent_district,$present_address,$present_district,$present_pin,$whatapps_no,$guardian_name,$transportation,$route,$subject_combination,$uploadFiles_photo,$uploadFiles_marksheet,$uploadFiles_admitcard);
+		  		$result = $this->Admission_model->addResgistrationFrom($student_name,$dob,$gender,$religion,$caste,$father_name,$father_occuption,$mother_name,$mother_occuption,$permanent_address,$permanent_address_po,$permanent_address_ps,$permanent_pin,$whatapps_no,$aadhaar_number,$identification_mark,$pwd,$blood_group,$x_pass_board,$x_pass_school,$roll_no,$x_passed_year,$x_division,$percentage,$x_subject_offer,$x_eligible_cert_no,$subject_combination,$uploadFiles_photo,$uploadFiles_marksheet,$uploadFiles_admitcard,$ambition,$career_option);
 				if($result['code'] == 1){
-				  $output = array("html"=>$this->load->view('extraedge/payment','', true),
+                        $data['result_applicationId'] = $this->session->userdata( 'application_id' );
+                        $data['result_studentName'] = $this->session->userdata( 'student_name' );
+                        $data['result_dob'] = $this->session->userdata( 'dob' );
+                        $data['result_permanent_address'] = $this->session->userdata( 'permanent_address' );
+                        $output = array("html"=>$this->load->view('extraedge/successPayment',$data, true),
                                     "success" => true,
-                                    "msg" => "Save sucessfull!"); 
+                                    "msg" => "Save sucessfull!");  
 				}else{
 
                     //Removing Image 

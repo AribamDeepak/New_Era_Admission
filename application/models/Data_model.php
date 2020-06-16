@@ -2169,7 +2169,7 @@ function getWishlistItem($uid,$token){
 	} 
 	
 	
-	  function get_candidate_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb,$transport,$bus_route,$admission)  
+	  function get_candidate_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb)  
 	{   
 	    $this->db->select('*');
         $this->db->from('registration');
@@ -2185,22 +2185,6 @@ function getWishlistItem($uid,$token){
         }
         if($subject_comb != ''){
         	$this->db->where('subject_combination', $subject_comb);
-        }
-        if($transport != ''){
-        	$this->db->where('transportation', $transport);
-        }
-        if($bus_route != ''){
-        	$this->db->where('transport_bus_route', $bus_route);
-        }
-        if($admission != ''){
-        	switch ($admission) {
-        		case '1':
-        			$this->db->where('isAdmission ', 1);
-        			break;
-        		case '2':
-        			$this->db->where('isAdmission ', NULL);
-        			break;
-        	}
         }
         if($percentage_from != ''){
         	$this->db->where('percentage >= ', $percentage_from);

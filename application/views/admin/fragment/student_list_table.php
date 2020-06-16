@@ -5,14 +5,15 @@
 			<th>Sl No</th>
 			<th>Application ID</th>
 			<th>Student Name</th>
-			<th>Student ID</th>
-			<th>Gender</th>
-			<th>Whatapps No.</th>
-			<th>Aadhaar No.</th>
 			<th>DOB</th>
-			<th>Blood Group</th>
+			<th>Gender</th>
 			<th>Religion</th>
 			<th>Caste</th>
+			<th>Father Name</th>
+			<th>Mother Name</th>
+			<th>Contact No.</th>
+			<th>Aadhaar No.</th>
+			<th>Blood Group</th>
 			<th>Identification Mark</th>
 			<th>School Name</th>
 			<th>Board</th>
@@ -20,11 +21,6 @@
 			<th>Percentage</th>
 			<th>Permanent address</th>
 			<th>Permanent address Pin</th>
-			<th>Present address</th>
-			<th>Present address pin</th>
-			<th>Guardian name</th>
-			<th>Transportation</th>
-			<th>Bus Route</th>
 			<th>Subject combination</th>
 			<th>Apply Date</th>
 			<th>Action</th>
@@ -38,33 +34,26 @@
 			<td><?php echo $slno;?></td>
 			<td><?php echo $row['application_id']?></td>
 			<td><?php echo $row['student_name']?></td>
-			<td><?php if($row['admission_id'] != ''){ echo $row['admission_id'];}else{ echo '- Nil -';} ?></td>
-			<td><?php echo $row['gender']?></td>
-			<td><?php echo $row['watsapp_no']?></td>
-			<td><?php echo $row['aadhaar_number']?></td>
 			<td><?php $d=strtotime($row['dob']); echo date("d/m/Y", $d)?></td>
-			<td><?php echo $row['blood_group']?></td>			
+			<td><?php echo $row['gender']?></td>
 			<td><?php echo $row['religion']?></td>
 			<td><?php echo $row['caste']?></td>
+			<td><?php echo $row['father_name']?></td>
+			<td><?php echo $row['mother_name']?></td>
+			<td><?php echo $row['watsapp_no']?></td>
+			<td><?php echo $row['aadhaar_number']?></td>
+			<td><?php echo $row['blood_group']?></td>			
 			<td><?php echo $row['identification_mark']?></td>
 			<td><?php echo $row['school_name']?></td>
 			<td><?php echo $row['passed_board']?></td>
 			<td><?php echo $row['roll_no']?></td>
 			<td><?php echo $row['percentage']?></td>
 			<td><?php echo $row['permanent_address']?></td>
-			<td><?php echo $row['permanent_address_pin']?></td>
-			<td><?php echo $row['present_address']?></td>
-			<td><?php echo $row['persent_address_pin']?></td>
-			<td><?php echo $row['guardian_name']?></td>				
-			<td><?php echo $row['transportation']?></td>			
-			<td><?php echo $row['transport_bus_route']?></td>
+			<td><?php echo $row['permanent_address_pin']?></td>		
 			<td><?php echo $row['subject_combination']?></td>
 			<td><?php $d=strtotime($row['added_on']); echo date("d/m/Y", $d)?></td>
 			<td>			
 				<button class="btn btn-info btn-sm" style="margin: 1px;    padding: 1px 5px;    font-size: 12px;    line-height: 1.5;    border-radius: 3px;" onclick="show_profile_modal(<?php echo $row['id']?>)">View</button>
-				<button class=" btn btn-success btn-sm" style="margin: 1px;    padding: 1px 5px;    font-size: 12px;    line-height: 1.5;    border-radius: 3px;" onclick="show_admission_modal(<?php echo $row['id']?>,'<?php echo $row['application_id']?>','<?php echo $row['student_name']?>','<?php echo $row['watsapp_no']?>','<?php echo $row['aadhaar_number']?>','<?php echo $row['transportation']?>','<?php echo $row['percentage']?>','<?php echo $row['passed_board']?>','<?php echo $row['gender']?>')">Admission</button>	
-				<button class="btn btn-info btn-sm" style="margin: 1px;    padding: 1px 5px;    font-size: 12px;    line-height: 1.5;    border-radius: 3px;" onclick="show_payment_history_modal(<?php echo $row['id']?>)">Payment History</button>
-				
 			</td>
 </tr>
 	<?php $slno++; }?>

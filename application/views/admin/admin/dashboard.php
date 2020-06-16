@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+  <!--       <div class="col-md-6 col-lg-4">
           <div class="widget-small info coloured-icon"><i class="icon fa fa-user fa-3x"></i>
             <div class="info">
               <h4>No. Of Admission</h4>
@@ -33,7 +33,7 @@
     text-align: center;"></p>
             </div>
           </div>
-        </div>
+        </div> -->
         
 		
   </div>
@@ -100,59 +100,11 @@
                 <option value="GROUP-A">GROUP-A</option>
                 <option value="GROUP-B">GROUP-B</option>
                 <option value="GROUP-C">GROUP-C</option>
-                <option value="GROUP-D">GROUP-D</option>
             </select>
           </div>     
         </div>
       </div>
-      <div class="col-md-2">  
-        <div  class="form-group">
-          <label for="id_email" class="control-label"> Transport </label>
-          <div class="controls ">
-            <select class="form-control" id="transport" name="transport">
-                <option value="">--Select--</option>   
-                <option value="Bus">Bus</option>
-                <option value="Hosteller">Hosteller</option>
-                <option value="Day Scholar">Day Scholar</option>
-            </select>
-          </div>     
-        </div>
-      </div>
-      <div class="col-md-2">  
-        <div  class="form-group">
-          <label for="id_email" class="control-label"> Bus Route No </label>
-          <div class="controls ">
-            <select class="form-control" id="bus_route" name="bus_route">
-                <option value="">--Select--</option>   
-                <option value="1">Route 1</option>
-                <option value="2">Route 2</option>
-                <option value="3">Route 3</option>
-                <option value="4">Route 4</option>
-                <option value="5">Route 5</option>
-                <!-- <option value="6">Route 6</option> -->
-                <option value="7">Route 7</option>
-                <option value="8">Route 8</option>
-                <option value="9">Route 9</option>
-                <option value="10">Route 10</option>
-                <option value="11">Route 11</option>
-                <option value="12">Route 12</option>
-                <option value="13">Route 13</option>
-            </select>
-          </div>     
-        </div>
-      </div>
-      <div class="col-md-2">  
-        <div  class="form-group">
-          <label for="id_email" class="control-label"> Admission </label>
-          <div class="controls ">
-            <select class="form-control" id="admission" name="admission">
-                <option value="">--Select--</option>   
-                <option value="1">Admitted Student</option>
-                <option value="2">Non-admitted Student</option>
-            </select>
-          </div>     
-        </div>
-      </div>
+      
       
       <div class="col-md-1 ">  
         <div  class="form-group">
@@ -228,20 +180,18 @@ function SearchFilter(){
   $percentage_to = $('#percentage_to').val();
   $applyDate = $('#applyDate_id').val();
   $subject_comb = $('#subject_comb').val();
-  $transport = $('#transport').val();
-  $bus_route = $('#bus_route').val();
-  $admission = $('#admission').val();
-  load_student_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb,$transport,$bus_route,$admission);
+
+  load_student_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb);
 }     
    
-    function load_student_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb,$transport,$bus_route,$admission)
+    function load_student_list($app_id,$name,$aadhaar_no,$percentage_from,$percentage_to,$applyDate,$subject_comb)
     { 
     var url = "<?php echo site_url('index.php/data_controller/get_student_list'); ?>"; 
     StartInsideLoading();
     $.ajax({
       type: "post",
       url: url,
-      data:{app_id:$app_id, name:$name, aadhaar_no:$aadhaar_no, percentage_from:$percentage_from, percentage_to:$percentage_to, applyDate:$applyDate, subject_comb:$subject_comb, transport:$transport, bus_route:$bus_route, admission:$admission},
+      data:{app_id:$app_id, name:$name, aadhaar_no:$aadhaar_no, percentage_from:$percentage_from, percentage_to:$percentage_to, applyDate:$applyDate, subject_comb:$subject_comb},
       cache: false, 
       // contentType: false,
         // processData: false,  
@@ -290,7 +240,7 @@ function SearchFilter(){
                      // },  
                      "columnDefs":[  
                           {  
-                               "targets":[22],  
+                               "targets":[21],  
                                "orderable":false,  
                           },  
                      ],  

@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="description" content="XTRA-EDGE SCHOOL">
+    <meta name="description" content="New-Era School">
     <!-- Twitter meta-->
     <meta property="twitter:card" content="summary_large_image">
     <!-- Open Graph Meta-->
-    <title>XTRA-EDGE SCHOOL Admin</title>
+    <title>New-Era School Admin</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
   </head>
   <body class="app sidebar-mini rtl" id="b_ody" style="font-size:12px;">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="#" style="    font-family: verdana !important;">XTRA-EDGE</a>
+    <header class="app-header"><a class="app-header__logo" href="#" style="    font-family: verdana !important;">NEW-ERA</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" id="show_id" style="color:white;cursor:pointer;" onclick="show_nav()" ></a>
 	  <a class="app-sidebar__toggle" style="color:white;cursor:pointer;" id="hide_id" onclick="hide_nav()" ></a>
       <!-- Navbar Right Menu-->

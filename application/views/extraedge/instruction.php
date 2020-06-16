@@ -55,7 +55,6 @@ padding:5px;
               <li>All the candidates must come with Parents (Father/Mother/Guardians).</li>
               <li>Those who fail to come in the Counseling Session may not be permitted for admission.</li>
               <li>Original Educational Qualification Certificates should be brought during the Counseling Session.</li>
-              
             </ol> 
 
             <form style="margin-bottom: 100px;">
@@ -262,7 +261,7 @@ function addResgistrationFrom(){
         $('#files_admitcard').focus();
         return;
     }
-
+    
     var dataString = new FormData($('#application_form')[0]);
 
     StartInsideLoading();  
